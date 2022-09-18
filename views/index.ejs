@@ -1,0 +1,92 @@
+<%- include('templates/header') %>
+     
+     <table class="table table-secondary  container-fluid" >
+                <thead class="thead-dark">
+                  <tr class="">
+                      <th>ID</th>
+                      <th>Name</th>
+                      <th>Tipo</th>
+
+                      <th>Apagar</th>
+                      <th>Atualizar</th>
+
+                  </tr>
+                </thead>
+        
+                <tbody>
+                        <% for(let i = 0 ;  i < pokemons.length; i++){  %>
+
+                                <form method="POST" id="<%= 'update'+pokemons[i]['id'] %>"></form>
+                               <tr id="<%= pokemons[i]['id'] %>">
+
+                                <td  >
+                                       <input type="number" value="<%= pokemons[i]['id'] %>" name="id" form="<%= 'update'+pokemons[i]['id'] %>"  class=""> 
+                                </td>
+                                <td>
+                                        <input type="text" name="pokemon" form="<%= 'update'+pokemons[i]['id'] %>" value="<%= pokemons[i]['pokemon'] %>">
+                                </td>
+                                <td>
+                                     
+                                        <select name="tipo" form="<%= 'update'+pokemons[i]['id'] %>" id="">
+                                                <option id="<%= pokemons[i]['tipo'] %>" value="Normal">Normal </option>
+                                                <option  id="<%= pokemons[i]['tipo'] %>"   value="Fire">Fire (fogo) </option>
+                                                <option  id="<%= pokemons[i]['tipo'] %>"  value="Water">Water (água) </option>
+                                                <option  id="<%= pokemons[i]['tipo'] %>"  value="Gras">Grass (grama) </option>
+                                                <option  id="<%= pokemons[i]['tipo'] %>"  value="Flying">Flying (voador) </option>
+                                                <option  id="<%= pokemons[i]['tipo'] %>"  value="Fighting">Fighting (lutador) </option>
+                                                <option  id="<%= pokemons[i]['tipo'] %>"  value="Poison">Poison (veneno) </option>
+                                                <option  id="<%= pokemons[i]['tipo'] %>"  value="Electric">Electric (elétrico) </option>
+                                                <option  id="<%= pokemons[i]['tipo'] %>"  value="Ground">Ground (terra) </option>
+                                                <option  id="<%= pokemons[i]['tipo'] %>"  value="Rock">Rock (pedra) </option>
+                                                <option  id="<%= pokemons[i]['tipo'] %>"  value="Psychic">Psychic (psíquico) </option>
+                                                <option  id="<%= pokemons[i]['tipo'] %>"  value="Ice">Ice (gelo) </option>
+                                                <option  id="<%= pokemons[i]['tipo'] %>"  value="Bug">Bug (inseto) </option>
+                                                <option  id="<%= pokemons[i]['tipo'] %>"  value="Ghost">Ghost (fantasma) </option>
+                                                <option  id="<%= pokemons[i]['tipo'] %>"  value="Steel">Steel (ferro) </option>
+                                                <option  id="<%= pokemons[i]['tipo'] %>"  value="Dragon">Dragon (dragão) </option>
+                                                <option  id="<%= pokemons[i]['tipo'] %>"  value="Dark">Dark (sombrio) </option>
+                                                <option  id="<%= pokemons[i]['tipo'] %>"  value="Fairy">Fairy (fada)         </option>      
+                                             </select>
+                                             <script>
+                                                 var tipo = '<%- pokemons[i]["tipo"] %>'
+                                               var select = document.getElementById('<%- pokemons[i]["id"]%>').children[2].children[0]
+                                                for (let index = 0; index < select.children.length; index++) {
+                                                        
+                                                       
+                                                        if (  select.children[index].getAttribute('value') == tipo) {
+                                                        
+                                                       
+                                                                select.children[index].setAttribute('selected',0)
+                                                       }
+                                                }
+                                                       
+                                          
+                                                
+                                              </script>
+                                            
+                                       
+                                </td>
+                                <td>
+                                        <form id="delete" method="get">
+                                                <button class=" btn btn-danger" form="delete"  name="delete-id" type="submit" value="<%= pokemons[i]['id']%>"> 
+                                                <i class="material-icons">delete</i>        
+                                                </button>
+                                        </form>
+                                        
+                                </td>
+                                <td>
+                                        
+                                              <button class=" btn btn-primary"  form="<%= 'update'+pokemons[i]['id'] %>" type="submit" name="update" value="<%= pokemons[i]['id']%>" >
+                                                <i class="material-icons">update</i>
+                                        
+                                        
+                                </td>
+                     
+                               </tr> 
+
+                        
+                        <% } %>
+                </tbody>
+              </table>
+   
+              <%- include('templates/footer') %>

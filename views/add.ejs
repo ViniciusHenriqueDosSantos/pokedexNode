@@ -1,0 +1,52 @@
+<%- include('templates/header') %>
+
+<div class="container-fluid bg-gray row">
+
+
+<form method="post " class="col-12 row">
+
+
+  <div class="form-group col-12">
+    <label >ID</label>
+    <input type="number" class="form-control" name="id"   placeholder="Id">
+  </div>
+  <div class="form-group col-12">
+    <label  >Nome</label>
+    <input type="text" class="form-control" name="pokemon"   placeholder="Name">
+</div>
+<div class="form-group col-12 ">
+    <label >Tipo</label>
+    
+    <select class="w-100" name="tipo" id="">
+       <option value="Normal">Normal </option>
+       <option value="Fire">Fire (fogo) </option>
+       <option value="Water">Water (água) </option>
+       <option value="Gras">Grass (grama) </option>
+       <option value="Flying">Flying (voador) </option>
+       <option value="Fighting">Fighting (lutador) </option>
+       <option value="Poison">Poison (veneno) </option>
+       <option value="Electric">Electric (elétrico) </option>
+       <option value="Ground">Ground (terra) </option>
+       <option value="Rock">Rock (pedra) </option>
+       <option value="Psychic">Psychic (psíquico) </option>
+       <option value="Ice">Ice (gelo) </option>
+       <option value="Bug">Bug (inseto) </option>
+       <option value="Ghost">Ghost (fantasma) </option>
+       <option value="Steel">Steel (ferro) </option>
+       <option value="Dragon">Dragon (dragão) </option>
+       <option value="Dark">Dark (sombrio) </option>
+       <option value="Fairy">Fairy (fada)         </option>      
+    </select>
+  
+    
+  </div>
+
+<div class="col-12">
+      <button type="submit" class="btn w-100 btn-secondary">Adicionar</button>
+
+    </div>
+ 
+</form>
+
+</div>
+<%- include('templates/footer') %>
